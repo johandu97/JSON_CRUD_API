@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "161f0183-ee1e-4f97-8462-ea05f2a99cf1",
+		"name": "[DEV] JSON_CRUD_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11453410"
+	},
+	"item": [
+		{
+			"name": "createTable",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/createtable",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createtable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\":\"Test3\",\r\n    \"Content\":\"Check Var\",\r\n    \"Author\":\"Zohan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/createpost",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createpost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "viewPost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/viewpost/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"viewpost",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "viewPosts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/viewposts",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"viewposts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePost",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\":\"zohan\",\r\n    \"Content\":\"Check Var2\",\r\n    \"Author\":\"Zohan2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/updatepost/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"updatepost",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePost",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/deletepost/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"deletepost",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

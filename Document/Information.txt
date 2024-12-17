@@ -1,0 +1,43 @@
+# Writeup
+...
+
+# Goal
+1. Code Based On BRD Document
+2. Save To Postman
+3. Write Docx API Swagger
+4. Pentest With BurpSuite
+5. Push/Pull Github Code
+6. CI/CD -> Jenkins -> SonarQube
+7. Build Docker File -> Push Image -> Docker Hub
+8. EKS Pull ECR (Docker Hub) -> Container Run Pod
+
+--------------------------------------------------------------------------------
+# Init
+go mod init <Project>
+swag init
+
+# Package
+## HTTP Server
+go get -u github.com/gin-gonic/gin
+
+## Connect DB
+go get -u gorm.io/gorm
+go get -u gorm.io/driver/mysql
+
+## Environment Variables
+go get github.com/joho/godotenv
+
+# Install swag CLI
+go install github.com/swaggo/swag/cmd/swag@latest
+
+# Install Gin Swagger and Swagger files
+go get -u github.com/swaggo/gin-swagger
+go get -u github.com/swaggo/files
+
+http://localhost:3000/swagger/index.html
+
+_ "Example/docs"
+swaggerFiles "github.com/swaggo/files"
+ginSwagger "github.com/swaggo/gin-swagger"
+--------------------------------------------------------------------------------
+

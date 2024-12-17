@@ -1,0 +1,281 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server for managing blog posts.",
+        "title": "CRUD POST API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Zohan",
+            "email": "johandu97@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "paths": {
+        "/createpost": {
+            "post": {
+                "description": "Create a post with content, title, author",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Process Post"
+                ],
+                "summary": "Create a post",
+                "parameters": [
+                    {
+                        "description": "Create Post",
+                        "name": "post",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CreatePostRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse200"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse400"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse500"
+                        }
+                    }
+                }
+            }
+        },
+        "/createtable": {
+            "post": {
+                "description": "Create a table with name \"posts\"",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Process Table"
+                ],
+                "summary": "Create a table",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse200"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse400"
+                        }
+                    }
+                }
+            }
+        },
+        "/deletepost/{ID}": {
+            "delete": {
+                "description": "Delete a post with ID",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Process Post"
+                ],
+                "summary": "Delete a post",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Post ID",
+                        "name": "ID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse200"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse400"
+                        }
+                    }
+                }
+            }
+        },
+        "/updatepost/{ID}": {
+            "put": {
+                "description": "Update a post with ID",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Process Post"
+                ],
+                "summary": "Update a post",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Post ID",
+                        "name": "ID",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Update Post",
+                        "name": "post",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CreatePostRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse200"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse400"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse500"
+                        }
+                    }
+                }
+            }
+        },
+        "/viewpost/{ID}": {
+            "get": {
+                "description": "View a post with ID",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Process Post"
+                ],
+                "summary": "View a post",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Post ID",
+                        "name": "ID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse200"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse400"
+                        }
+                    }
+                }
+            }
+        },
+        "/viewposts": {
+            "get": {
+                "description": "View many posts",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Process Post"
+                ],
+                "summary": "View many posts",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse200"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.MessageResponse400"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.CreatePostRequest": {
+            "type": "object",
+            "properties": {
+                "Author": {
+                    "description": "Post Author",
+                    "type": "string",
+                    "example": "John Doe"
+                },
+                "Content": {
+                    "description": "Post Content",
+                    "type": "string",
+                    "example": "This is my content"
+                },
+                "Title": {
+                    "description": "Post Title",
+                    "type": "string",
+                    "example": "My First Post"
+                }
+            }
+        },
+        "models.MessageResponse200": {
+            "type": "object",
+            "properties": {
+                "Message": {
+                    "type": "string",
+                    "example": "OK"
+                }
+            }
+        },
+        "models.MessageResponse400": {
+            "type": "object",
+            "properties": {
+                "Message": {
+                    "type": "string",
+                    "example": "Bad Request"
+                }
+            }
+        },
+        "models.MessageResponse500": {
+            "type": "object",
+            "properties": {
+                "Message": {
+                    "type": "string",
+                    "example": "Internal Server Error"
+                }
+            }
+        }
+    }
+}

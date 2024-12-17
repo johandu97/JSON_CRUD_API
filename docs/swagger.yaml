@@ -1,0 +1,187 @@
+basePath: /
+definitions:
+  models.CreatePostRequest:
+    properties:
+      Author:
+        description: Post Author
+        example: John Doe
+        type: string
+      Content:
+        description: Post Content
+        example: This is my content
+        type: string
+      Title:
+        description: Post Title
+        example: My First Post
+        type: string
+    type: object
+  models.MessageResponse200:
+    properties:
+      Message:
+        example: OK
+        type: string
+    type: object
+  models.MessageResponse400:
+    properties:
+      Message:
+        example: Bad Request
+        type: string
+    type: object
+  models.MessageResponse500:
+    properties:
+      Message:
+        example: Internal Server Error
+        type: string
+    type: object
+host: localhost:3000
+info:
+  contact:
+    email: johandu97@gmail.com
+    name: Zohan
+  description: This is a sample server for managing blog posts.
+  termsOfService: http://swagger.io/terms/
+  title: CRUD POST API
+  version: 1.0.0
+paths:
+  /createpost:
+    post:
+      description: Create a post with content, title, author
+      parameters:
+      - description: Create Post
+        in: body
+        name: post
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreatePostRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MessageResponse200'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.MessageResponse400'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.MessageResponse500'
+      summary: Create a post
+      tags:
+      - Process Post
+  /createtable:
+    post:
+      description: Create a table with name "posts"
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MessageResponse200'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.MessageResponse400'
+      summary: Create a table
+      tags:
+      - Process Table
+  /deletepost/{ID}:
+    delete:
+      description: Delete a post with ID
+      parameters:
+      - description: Post ID
+        in: path
+        name: ID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MessageResponse200'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.MessageResponse400'
+      summary: Delete a post
+      tags:
+      - Process Post
+  /updatepost/{ID}:
+    put:
+      description: Update a post with ID
+      parameters:
+      - description: Post ID
+        in: path
+        name: ID
+        required: true
+        type: integer
+      - description: Update Post
+        in: body
+        name: post
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreatePostRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MessageResponse200'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.MessageResponse400'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.MessageResponse500'
+      summary: Update a post
+      tags:
+      - Process Post
+  /viewpost/{ID}:
+    get:
+      description: View a post with ID
+      parameters:
+      - description: Post ID
+        in: path
+        name: ID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MessageResponse200'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.MessageResponse400'
+      summary: View a post
+      tags:
+      - Process Post
+  /viewposts:
+    get:
+      description: View many posts
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MessageResponse200'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.MessageResponse400'
+      summary: View many posts
+      tags:
+      - Process Post
+swagger: "2.0"

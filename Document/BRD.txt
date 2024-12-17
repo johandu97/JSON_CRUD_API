@@ -1,0 +1,4 @@
+Viết 1 ứng dụng bao gồm các tính năng sau:
+    - Tạo bài viết
+    - Xóa bài viết
+    - Đọc 1 bài viết hoặc nhiều bài viết
